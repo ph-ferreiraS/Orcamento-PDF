@@ -3,11 +3,13 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString
 public class Cliente {
     private String nome;
     @Id
@@ -18,5 +20,6 @@ public class Cliente {
     private int idade;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Carro> carros;
 }

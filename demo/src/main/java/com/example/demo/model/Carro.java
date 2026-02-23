@@ -3,10 +3,12 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+@ToString
 public class Carro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,7 @@ public class Carro {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
+    @ToString.Exclude
     private Cliente cliente;
 
     private String modelo;
